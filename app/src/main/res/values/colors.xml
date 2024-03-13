@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dkgray">#212121</color>
+    <color name="gray">#898989</color>
+    <color name="gray_new">#1E000000</color>
+    <color name="light_gray">#F4F4F4</color>
+    <color name="light_gray_5">#F5F5F5</color>
+    <color name="ltgray">#f0f0f0</color>
+    <color name="specialgray">#979a9b</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparentLigthness">#abffffff</color>
+    <color name="transparentLigthSeparator">#DFDFDF</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparentDarkness">#64000000</color>
+    <color name="red">#F00</color>
+    <color name="orange">#F85E2C</color>
+    <color name="light_orange">#FF7447</color>
+    <color name="badge_red">#D94D4D</color>
+    <color name="white_background">#F1F1F1</color>
+    <color name="white_background_sec">#FFFFFF</color>
+    <color name="white_background_section_DP">#ededed </color>
+
+    <color name="colorPrimary">#69c5f5</color>
+    <color name="colorPrimaryDark">#156757</color>
+    <color name="colorAccent">#212121</color>
+    <color name="colorSecondary">#ffffff</color>
+    <color name="colorFooter">#2D8A78</color>
+    <color name="colorLight">#ffffff</color>
+    <color name="colorLightAlpha">#e587a366</color>
+    <color name="backgroundSplash">#fff</color>
+
+    <color name="note_color_a">#f3f86f</color>
+    <color name="note_color_b">#f26f67</color>
+    <color name="note_color_c">#f3c165</color>
+    <color name="note_color_d">#ffffff</color>
+    <color name="note_color_e">#bac3c8</color>
+    <color name="note_color_f">#69c5f5</color>
+    <color name="note_color_g">#91f6db</color>
+    <color name="note_color_h">#b9f974</color>
+
+    <color name="backgroundMyMessage">#9ad1ce</color>
+    <color name="main_black_text">#2B2B2B</color>
+    <color name="main_gray_text">#707070</color>
+    <color name="black_gray_text">#757575</color>
+    <color name="main_gray_text_50">#D9707070</color>
+    <color name="no_stock_backgound">#F6D2D2</color>
+    <color name="no_stock_text">#DE0713</color>
+    <color name="show_more_text">#85AD51</color>
+    <color name="separator_color">#32707070</color>
+
+    <color name="fade_black">#80000000</color>
+    <color name="login_title_color">#757575</color>
+    <color name="hypertext_blue">#0645AD</color>
+
+    <color name="secondary_dark">#CDCDCD</color>
+    <color name="secondary">#F0F0F0</color>
+    <color name="secondary_light">#FFFFFF</color>
+    <color name="secondary_light_60">#99FFFFFF</color>
+
+    <color name="background">#232730</color>
+    <color name="background_dark">#1B1D29</color>
+    <color name="paper">#2E353F</color>
+
+    <color name="error">#e84545</color>
+    <color name="error_dark">#d32f2f</color>
+
+    <color name="warning_dark">#F48B29</color>
+    <color name="warning">#F0A500</color>
+
+    <color name="divider">#A68B979D</color>
+    <color name="outline">#39424E</color>
 </resources>
