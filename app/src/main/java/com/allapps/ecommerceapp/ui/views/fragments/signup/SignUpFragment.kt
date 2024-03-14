@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.allapps.ecommerceapp.R
+import com.allapps.ecommerceapp.data.model.UserSignUp
 import com.allapps.ecommerceapp.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
@@ -25,6 +27,32 @@ class SignUpFragment : Fragment() {
             navController.navigateUp()
         }
 
+        signUp()
+        initObservers()
+
         return binding.root
+    }
+
+    private fun signUp() {
+        binding.btnRegister.setOnClickListener {
+            viewModel.signUp(UserSignUp(userName = binding.etNickname.text.toString(),
+                name = binding.etName.text.toString(),
+                email = binding.etEmail.text.toString(),
+                pass = binding.etPass.text.toString(),
+                passConfirmate = binding.etRepeatPass.text.toString()))
+        }
+
+    }
+
+    private fun initObservers() {
+        viewModel.accountCreated.observe( viewLifecycleOwner){ accountCreated ->
+
+            if (accountCreated){
+                Toast.makeText(context,"Registrado",Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 }
