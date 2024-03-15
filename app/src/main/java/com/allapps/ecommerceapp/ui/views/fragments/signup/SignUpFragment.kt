@@ -53,15 +53,21 @@ class SignUpFragment : Fragment() {
     private fun initObservers() {
         viewModel.accountCreated.observe(viewLifecycleOwner) { accountCreated ->
             if (accountCreated) {
-                requireContext().snackbar(binding.viewSignup,"Usuario Registrado")
-                //requireContext().toast("Usuario Registrado")
-                //Toast.makeText(context,"Registrado",Toast.LENGTH_SHORT).show()
+                requireContext().snackbar(binding.viewSignup, "Usuario Registrado")
             } else {
-                requireContext().snackbar(binding.viewSignup,"Error al registrarse")
-                //requireContext().toast("Hubo un error al registrarse")
-                //Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
+                requireContext().snackbar(binding.viewSignup, "Error al registrarse")
             }
 
+        }
+
+        viewModel.loading.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.viewLoad.root.visibility = View.VISIBLE
+                binding.viewSignup.isClickable = false
+            }else{
+                binding.viewLoad.root.visibility = View.GONE
+                binding.viewSignup.isClickable = true
+            }
         }
     }
 }

@@ -8,11 +8,11 @@ class SignUpUseCase {
     private val firebaseAuthRepositoryImpl = FirebaseAuthRepositoryImpl()
     private val userService = UserService()
 
-    suspend fun signUp (user : UserSignUp): Boolean{
+    suspend fun signUp(user: UserSignUp): Boolean {
         val accountCreated = firebaseAuthRepositoryImpl.signUp(user.email, user.pass)
-        return if (accountCreated){
+        return if (accountCreated) {
             userService.createUserTable(user)
-        } else{
+        } else {
             false
         }
     }

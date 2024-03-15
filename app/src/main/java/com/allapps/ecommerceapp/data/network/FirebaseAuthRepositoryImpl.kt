@@ -5,6 +5,7 @@ import android.util.Log
 import com.allapps.ecommerceapp.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.tasks.await
+import kotlin.concurrent.timerTask
 
 class FirebaseAuthRepositoryImpl : AuthRepository {
 
@@ -25,19 +26,10 @@ class FirebaseAuthRepositoryImpl : AuthRepository {
 
     override suspend fun signUp(email: String, password: String): Boolean {
         return try {
-            var isSuccesful = false
-            firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "createUserWithEmail:success")
-                        isSuccesful = true
-                    }else{
-                        Log.d(TAG, "createUserWithEmail:failure", task.exception)
-                    }
-                }
-                .await()
-            isSuccesful
+            firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            true
         } catch (e: Exception) {
+            Log.d(TAG, "createUserWithEmailAndPassword:failure", e)
             false
         }
     }

@@ -8,7 +8,6 @@
     android:background="@color/white"
     tools:context=".ui.views.fragments.signup.SignUpFragment">
 
-
     <include
         android:id="@+id/viewHeader"
         layout="@layout/header"
@@ -147,5 +146,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilRepeatPass" />
 
+    <include
+        android:id="@+id/view_load"
+        layout="@layout/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
