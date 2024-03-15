@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.allapps.ecommerceapp.R
 import com.allapps.ecommerceapp.data.model.UserSignUp
 import com.allapps.ecommerceapp.databinding.FragmentSignUpBinding
+import com.allapps.ecommerceapp.utils.snackbar
+import com.allapps.ecommerceapp.utils.toast
 
 class SignUpFragment : Fragment() {
 
@@ -35,22 +37,29 @@ class SignUpFragment : Fragment() {
 
     private fun signUp() {
         binding.btnRegister.setOnClickListener {
-            viewModel.signUp(UserSignUp(userName = binding.etNickname.text.toString(),
-                name = binding.etName.text.toString(),
-                email = binding.etEmail.text.toString(),
-                pass = binding.etPass.text.toString(),
-                passConfirmate = binding.etRepeatPass.text.toString()))
+            viewModel.signUp(
+                UserSignUp(
+                    userName = binding.etNickname.text.toString(),
+                    name = binding.etName.text.toString(),
+                    email = binding.etEmail.text.toString(),
+                    pass = binding.etPass.text.toString(),
+                    passConfirmate = binding.etRepeatPass.text.toString()
+                )
+            )
         }
 
     }
 
     private fun initObservers() {
-        viewModel.accountCreated.observe( viewLifecycleOwner){ accountCreated ->
-
-            if (accountCreated){
-                Toast.makeText(context,"Registrado",Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
+        viewModel.accountCreated.observe(viewLifecycleOwner) { accountCreated ->
+            if (accountCreated) {
+                requireContext().snackbar(binding.viewSignup,"Usuario Registrado")
+                //requireContext().toast("Usuario Registrado")
+                //Toast.makeText(context,"Registrado",Toast.LENGTH_SHORT).show()
+            } else {
+                requireContext().snackbar(binding.viewSignup,"Error al registrarse")
+                //requireContext().toast("Hubo un error al registrarse")
+                //Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show()
             }
 
         }
