@@ -14,8 +14,8 @@ class SignUpViewModel : ViewModel() {
     private val _accountCreated = MutableLiveData<Boolean>()
     val accountCreated: LiveData<Boolean> get() = _accountCreated
 
-    private val _navToHome = MutableLiveData<Boolean>()
-    val navToHome: LiveData<Boolean> get() = _navToHome
+    private val _navToVerifyAccount = MutableLiveData<Boolean>()
+    val navToVerifyAccount : LiveData<Boolean> get() = _navToVerifyAccount
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
@@ -25,10 +25,11 @@ class SignUpViewModel : ViewModel() {
             _loading.value = true
             val succesfullAcount = signUpUseCase.signUp(user)
             if (succesfullAcount) {
-                _navToHome.value = true
-                _accountCreated.value = true
+                _navToVerifyAccount .value = true
+                //_accountCreated.value = true
             } else {
-                _accountCreated.value = false
+                _navToVerifyAccount .value = false
+                //_accountCreated.value = false
             }
             _loading.value = false
         }

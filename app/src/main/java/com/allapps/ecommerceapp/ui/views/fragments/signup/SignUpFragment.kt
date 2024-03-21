@@ -51,14 +51,22 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.accountCreated.observe(viewLifecycleOwner) { accountCreated ->
+        viewModel.navToVerifyAccount.observe(viewLifecycleOwner) { accountCreated ->
+            if (accountCreated){
+                findNavController().navigate(R.id.action_signUpFragment_to_verificationFragment)
+            }else{
+                requireContext().snackbar(binding.viewSignup, "Error al registrarse")
+            }
+        }
+
+       /* viewModel.accountCreated.observe(viewLifecycleOwner) { accountCreated ->
             if (accountCreated) {
                 requireContext().snackbar(binding.viewSignup, "Usuario Registrado")
             } else {
                 requireContext().snackbar(binding.viewSignup, "Error al registrarse")
             }
 
-        }
+        }*/
 
         viewModel.loading.observe(viewLifecycleOwner) {
             if (it) {
