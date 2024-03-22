@@ -70,6 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilName">
@@ -94,6 +95,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="32"
+        app:helperTextTextColor="@color/red"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail">
@@ -104,8 +109,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
+            android:maxLength="32"
             android:imeOptions="actionNext"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black" />
 
@@ -117,6 +123,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPass">
@@ -128,7 +137,8 @@
             android:layout_height="wrap_content"
             android:hint="Repetir contraseña"
             android:imeOptions="actionNext"
-            android:inputType="text"
+            android:maxLength="32"
+            android:inputType="textPassword"
             android:textColorHighlight="@color/black"
             android:textColorHint="@color/black" />
 
