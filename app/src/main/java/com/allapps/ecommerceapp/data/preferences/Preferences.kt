@@ -1,28 +1,15 @@
-package com.allapps.ecommerceapp
+package com.allapps.ecommerceapp.data.preferences
 
-import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager.getDefaultSharedPreferences
+import android.preference.PreferenceManager
 import com.allapps.ecommerceapp.data.model.User
 import com.allapps.ecommerceapp.data.model.UserSignUp
-import com.allapps.ecommerceapp.data.preferences.Preferences
 
+class Preferences(val context: Context) {
 
-class EcommerceApplication : Application() {
-
-    companion object {
-        lateinit var prefs: Preferences
-    }
-    override fun onCreate() {
-        super.onCreate()
-
-        prefs = Preferences(applicationContext)
-
-    }
-
-    fun saveUser(userData: UserSignUp) {
-        val sharedPref: SharedPreferences = getDefaultSharedPreferences(this)
+    fun setUser(userData: UserSignUp) {
+        val sharedPref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         val editor = sharedPref.edit()
         editor.putString("email", userData.email)
         editor.putString("nickname", userData.userName)
@@ -31,7 +18,7 @@ class EcommerceApplication : Application() {
     }
 
     fun getUser(): User? {
-        val sharedPref: SharedPreferences = getDefaultSharedPreferences(this)
+        val sharedPref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         val email = sharedPref.getString("email", null)
         val nickName = sharedPref.getString("nickname", null)
         val realName = sharedPref.getString("realname", null)
@@ -42,5 +29,4 @@ class EcommerceApplication : Application() {
             null
         }
     }
-
 }

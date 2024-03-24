@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import com.allapps.ecommerceapp.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import kotlin.concurrent.timerTask
@@ -12,6 +13,7 @@ import kotlin.math.log
 class FirebaseAuthRepositoryImpl : AuthRepository {
 
     val firebaseAuth = FirebaseAuth.getInstance()
+    //val firebaseStore = FirebaseFirestore.getInstance()
 
     override suspend fun login(email: String, password: String): Boolean {
         try {
@@ -71,5 +73,7 @@ class FirebaseAuthRepositoryImpl : AuthRepository {
         }
 
     }
+
+
 }
 

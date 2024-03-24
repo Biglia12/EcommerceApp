@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.allapps.ecommerceapp.EcommerceApplication
+import com.allapps.ecommerceapp.data.repository.UserRepository
 import com.allapps.ecommerceapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -28,10 +30,14 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val user = UserRepository()
+        user.getUser()
+
         val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        textView.text = user.getUser()!!.nickName
+        //homeViewModel.text.observe(viewLifecycleOwner) {
+          //  textView.text = it
+        //}
         return root
     }
 
